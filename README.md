@@ -1,13 +1,16 @@
 # Inilogiczmoviebox- hngx task
+Link to the project
+https://movieboxwebapp-hngx-cu9jrihrv-inilogicz.vercel.app/
 
-
+Github repo link
+https://github.com/Inilogicz/Inilogiczmoviebox.git
 
 
 
 Ensure you have nodejs is installed on your PC 
 
 you need to clone the GitHub repository
-https://github.com/Inilogicz/Inilogiczmoviebox.git
+git clone https://github.com/Inilogicz/Inilogiczmoviebox.git
 
 Once the repository is cloned, navigate to the project directory using the cd command.
 cd project_directory

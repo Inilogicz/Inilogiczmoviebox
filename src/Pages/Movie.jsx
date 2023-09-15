@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useParams, NavLink, Link } from "react-router-dom"; // Import Link from react-router-dom
-import Logo from "../assets/Logo-b.png";
+import { useParams, NavLink, Link } from "react-router-dom";
 import { GoHome } from "react-icons/go";
 import { BsCameraReels, BsCalendar3 } from "react-icons/bs";
 import { MdOndemandVideo } from "react-icons/md";
 import { GrLogout } from "react-icons/gr";
+import { FaBars } from "react-icons/fa";
+import Logo from "../assets/Logo-b.png";
 
 const Movie = () => {
   let params = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [trailerId, setTrailerId] = useState(""); // Define trailerId state
   const [trailerUrl, setTrailerUrl] = useState(""); // Define trailerUrl state
 
@@ -48,7 +50,7 @@ const Movie = () => {
   // Function to fetch the trailer ID using the movie title
   const fetchTrailerData = async (movieTitle) => {
     const response = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=id&q=${movieTitle} trailer&key=AIzaSyA1cWV6TbkYcngj8kRlzRPogZ5s3tV2ttY`
+      `https://www.googleapis.com/youtube/v3/search?part=id&q=${movieTitle} trailer&key=AIzaSyBkDQqlWGJBteT9QxdYJmY646hzekUNJeE`
     );
     return response.json();
   };
@@ -65,13 +67,26 @@ const Movie = () => {
   // Check if dateInLocalTime is valid before converting to ISO string
   const release_date_in_utc = dateInLocalTime ? dateInLocalTime.toISOString() : '';
 
+
   return (
-    <section id="movie">
+    <section id="movie" className="overflow-hidden relative">
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        className="md:hidden absolute top-4 right-4 text-white z-10"
+      >
+        <FaBars className="text-2xl" />
+      </button>
+
       <div className="w-full flex md:flex-row">
-        <div className="w-[15%] md:flex hidden flex-col border border-[rgba(0,0,0,30%)] rounded-r-[45px]">
+        {/* Side Navigation */}
+        <div
+          className={`${
+            mobileMenuOpen ? "md:w-[15%] md:flex" : "hidden md:block"
+          } flex-col border border-[rgba(0,0,0,30%)] rounded-r-[45px]`}
+        >
           <img src={Logo} alt="MovieBox Logo" className="m-8" />
           <div className="flex flex-col">
-            {/* Use Link component to navigate back to homepage */}
             <Link to="/" className="nav-link">
               <GoHome className="text-2xl" />
               <h5>Home</h5>

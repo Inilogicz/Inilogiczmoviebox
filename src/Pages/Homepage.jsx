@@ -121,7 +121,7 @@ const Homepage = () => {
           </div>
         ) : (
           <div className="grid md:grid-cols-4 grid-cols-1 gap-8 my-4 place-items-center">
-            {moviesList.slice(3, 13).map((movie) => (
+            {moviesList.slice(0, 10).map((movie) => (
               <Card key={movie.id} movie={movie} />
             ))}
           </div>

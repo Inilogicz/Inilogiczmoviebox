@@ -1,6 +1,6 @@
 # Inilogiczmoviebox- hngx task
 Link to the project
-https://movieboxwebapp-hngx-cu9jrihrv-inilogicz.vercel.app/
+https://movieboxwebapp-hngx.vercel.app/
 
 Github repo link
 https://github.com/Inilogicz/Inilogiczmoviebox.git
